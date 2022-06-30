@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="uft-8">
+    <title>css 3</title>
+    <style>
+        div{
+            width: 920px;
+            height: 420px;
+            background-color: #E7E7E7;
+        }
+
+        img{
+            width: 25%;
+            transform: skewY(10deg);
+            position: absolute;
+        }
+        #first{
+            z-index: 3;
+            top: 40%;
+            left: 5%;
+        }
+        #second{
+            left: 15%;
+            top: 25%;
+            z-index: 2;
+        }
+        #third{
+            top: 15%;
+            left: 30%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="first" src="1.jpg">
+        <img id="second" src="2.jpg">
+        <img id="third" src="3.jpg">
+    </div>
+</body>
+</html>
