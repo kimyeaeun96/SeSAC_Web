@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>css prc1</title>
+        <style>
+            div{
+                transform: skewY(30deg);
+                margin-top: 100px;
+                margin-left: 50px;
+            }
+            .bg {
+                position: absolute;
+                display: inline-block;
+                width: 800px;
+                height: 500px;
+                background-color: lightgray;
+            }
+            .div1 {
+                display: inline-block;
+                position: relative;
+                top: 100px;
+                z-index: 3;
+            }
+            .div2 {
+                display: inline-block;
+                position: absolute;
+                left: 200px;
+                top: 50px;
+                z-index: 2;
+            }
+            .div3 {
+                display: inline-block;
+                position: absolute;
+                left: 400px;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <span class="bg"></span>
+        <div class="div1"><img style="width: 300px" src="C:\Users\user\github\image\garden-g1de2c38b8_1920.jpg"></div>
+        <div class="div2"><img style="width: 300px;" src="C:\Users\user\github\image\cat-g1daca3235_1920.jpg"></div>
+        <div class="div3"><img style="width: 300px;" src="C:\Users\user\github\image\tree-g53aed86dc_1920.jpg"></div>
+    </body>
+</html>
