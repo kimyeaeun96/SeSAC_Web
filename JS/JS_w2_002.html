@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>JS</title>
+        <meta charset = "UTF-8">
+        <script>
+            /*
+            console.log(document.documentElement); //  문서의 모든 구조를 로그한다.
+            console.log(document.head);
+            console.log(document.title);
+            console.log(document.body); // null // JS 는 위에서 아래로 읽는데 아직 바디를 못 읽었기 때문이다.
+            console.log(document.URL);
+            console.log(document.domain);
+            */
+
+
+        </script>
+    </head>
+    <body>
+        <img src="..\image\1.jpg" width="100" height="100">
+        <img src="..\image\2.jpg" width="100" height="100">
+        <img src="..\image\3.jpg" width="100" height="100">
+
+        <div id="div1" class="div1">
+            <input type="text" id="input1" value="값">
+            <button type="button" onclick="submit();">버튼</button>
+            <p class="css1">p태그 1</p>
+            <p class="css1">p태그 2</p>
+            <div>
+                <p class="css1">p태그 3</p>
+            </div>
+        </div>
+
+        <script>
+            console.log(document.getElementsByTagName("img")); 
+            console.log(document.getElementById("input1"));
+            console.log(document.querySelectorAll("#div1 > .css1")); // 자식 
+
+            function submit(){
+                var input = document.getElementsByClassName("div1");
+                console.log(input.value);  // 다시해~~
+            }
+            
+        </script>
+    </body>
+</html>
