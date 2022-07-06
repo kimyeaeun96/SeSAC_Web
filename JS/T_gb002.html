@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <script>
+            let num = 1;
+            function addNode(){
+                let author = document.getElementById("author").value;
+                let content = document.getElementById("content").value;
+                let date = new Date();
+                //console.log(date); ['Jan', 'Tue' ....., 'Dec'] 배열로 나온다.
+                date = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate() + ' ' + date.getHours() + ":" + date.getMinutes();
+                let table = document.getElementById("form");
+                
+                const newRow = document.createElement("tr");  
+                const newCell0 = document.createElement("td");
+                newRow.appendChild(newCell0); // newCell0.querySelectorAll((#table > tr+1) or (#table  tr))
+                const newCell1 = document.createElement("td");
+                newRow.appendChild(newCell1);
+                const newCell2 = document.createElement("td");
+                newRow.appendChild(newCell2);
+                const newCell3 = document.createElement("td");
+                newRow.appendChild(newCell3);
+
+                const cellText0 = document.createTextNode(num);
+                newCell0.appendChild(cellText0);
+                const cellText1 = document.createTextNode(author);
+                newCell1.appendChild(cellText1);
+                const cellText2 = document.createTextNode(content);
+                newCell2.appendChild(cellText2);
+                const cellText3 = document.createTextNode(date);
+                newCell3.appendChild(cellText3)
+
+                table.appendChild(newRow);
+                num += 1;
+
+            }
+
+        
+            
+        </script>
+    </head>
+    <body>
+        방명록입니다. 
+        <br><br>
+        <strong>작성자</strong><input type="text" id="author">
+        <br>
+        <strong>내용</strong><input type="text" id="content" size="50">
+        <br><br>
+        <button type="button" onclick="write();">작성</button> 
+        <!--write()함수는 document.write()이다. 
+        html 보다 상위인 document에 해당되기 때문에 여기선 쓰지 말자.--> 
+        <br><br>
+        <table id="form" border=1 width="700" cellspacing="0"> // table에는 tbody > tr 순으로 바디가 만들어진다.
+            <tr style="font-weight: bold;">
+                <td width="100">번호</td>
+                <td width="200">작성자</td>
+                <td width="300">내용</td>
+                <td width="200">날짜</td>
+            </tr>
+        </table>
+    </body>
+</html>

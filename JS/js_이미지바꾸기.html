@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../jquery-ui-1.13.1.custom//jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+        <script>
+            function change(fruit){
+                 $("img").attr("src", "../image/" + fruit + ".jpg")
+            }
+            /*
+            function apple() {
+                $("img").attr("src", "../image/apple.jpg")
+            }
+
+            function banana() {
+                $("img").attr("src", "../image/banana.jpg")
+            }
+
+            function peach() {
+                $("img").attr("src", "../image/peach.jpg")
+            }
+
+            function grape() {
+                $("img").attr("src", "../image/grape.jpg")
+            }                //비효율적이다.
+            */
+    
+            
+        </script>
+        <style>
+            img{
+                width: 400px;
+                height: 300px;
+            }
+            button {
+                background-color: black;
+                color: white;
+                padding: 5px 5px;
+
+            }
+            span {
+                margin-left: 80px;
+            }
+        </style>
+    </head>
+    <div>
+        <img src=""><br>
+        <span>
+            <button type="button" onclick="change('apple')">사과</button>
+            <button type="button" onclick="change('banana')">바나나</button>
+            <button type="button" onclick="change('grape')">포도</button>
+            <button type="button" onclick="change('peach')">복숭아</button>
+        </span>
+        
+    </div>
+    
+</html>

@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../jquery-ui-1.13.1.custom//jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+        <script>
+            function color(){
+                if( $("div").hasClass("gray") ) $("div").switchClass("gray", "red")
+                else if( $("div").hasClass("red") ) $("div").switchClass("red", "orange")
+                else if( $("div").hasClass("orange") ) $("div").switchClass("orange", "yellow")
+                else if( $("div").hasClass("yellow") ) $("div").switchClass("yellow", "green")
+            }
+        </script>
+        <style>
+            div {
+                cursor:pointer;
+            }
+
+            .gray{
+                width: 100px;
+                height: 100px;
+                background-color: gray;
+            }
+            .red{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+            .orange{
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+            }
+            .yellow{
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+            }
+            .green{
+                width: 100px;
+                height: 100px;
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div onclick="color();" class="gray"></div>
+    </body>
+</html>

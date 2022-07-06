@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script>
+            let num = 1;
+            function addNode(){
+                
+                var author = document.getElementById("author").value;
+                var content = document.getElementById("content").value;
+                var date = new Date();
+                const table = document.getElementById("form");
+                const newRow = table.insertRow();
+                const newCell0 = newRow.insertCell(0);
+                const newCell1 = newRow.insertCell(1);
+                const newCell2 = newRow.insertCell(2);
+                const newCell3 = newRow.insertCell(3);
+                newCell0.innerText = num;
+                newCell1.innerText = author;
+                newCell2.innerText = content;
+                newCell3.innerText = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay() + ' ' + date.getHours() + ':' + date.getMinutes();
+                num += 1;
+            }
+            
+        </script>
+    </head>
+    <body>
+        방명록입니다. 
+        <br><br>
+        <strong>작성자</strong><input type="text" id="author">
+        <br>
+        <strong>내용</strong><input type="text" id="content" size="50">
+        <br><br>
+        <button type="button" onclick="addNode();">작성</button>
+        <br><br>
+        <table id="form" border=1 width="700" cellspacing="0">
+            <tr style="font-weight: bold;">
+                <td width="100">번호</td>
+                <td width="200">작성자</td>
+                <td width="300">내용</td>
+                <td width="200">날짜</td>
+            </tr>
+        </table>
+    </body>
+</html>
