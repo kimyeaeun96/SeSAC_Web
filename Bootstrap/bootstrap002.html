@@ -1,0 +1,65 @@
+<!--10. Layout - Grid--> <!-- 12개로 나눈 그리드-->
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <div class="row">
+            <div class="col bg-warning">1</div>   <!-- 6  6-->
+            <div class="col bg-primary">2</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col bg-warning">1</div>  <!--4 4 4-->
+            <div class="col bg-primary">2</div>
+            <div class="col bg-info">3</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-6 bg-warning">1</div>  <!--6 2 4-->
+            <div class="col-2 bg-primary">2</div>   <!-- 만약 숫자가 비면, 빈 수만큼 공백이 생긴다.-->
+            <div class="col-4 bg-info">3</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-6 col-sm-4 bg-warning">1</div>  <!-- lg 992px보다 큰 화면이면 col-lg-6이고, lg 992px보다 작으면 col-lg-4-->
+            <div class="col-lg-2 col-sm-2 bg-primary">2</div>  
+            <div class="col-lg-4 col-sm-6 bg-info">3</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-4 col-lg-6 bg-warning">1</div>  
+            <div class="col-sm-2 col-lg-2 bg-primary">2</div>  
+            <div class="col-sm-4 col-lg-6 bg-info">3</div>
+        </div>
+        <br>
+        <div>
+            <div class="d-sm-block d-lg-none col bg-danger">111</div>  
+            <div class="d-sm-none d-md-block d-lg-none col bg-warning">222</div>  
+            <div class="d-sm-none d-lg-block col bg-success">333</div>  
+        </div>
+        <!--
+            if (width >= sm) col-4
+            else if(width >= lg) col-6
+        -->
+
+        <!--
+            col-sm-4 col-lg-6 일 경우
+
+            else if (width >= lg) col-6
+            else if (width >= sm) col-4
+
+            큰 단위를 먼저 적자. 
+        -->
+
+        <!--
+            Grid options
+            브레이크포인트
+        -->
+    </body>
+</html>
