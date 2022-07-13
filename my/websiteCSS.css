@@ -44,24 +44,105 @@
     height: 898px;
     background-color: rgb(38, 38, 38);
     color: white;
-    
+    display: flex;
 }
 
 .newsSection_content{
     width: 420px;
+    height: 898px;
 }
 
 .newsSection_image{
-    width: 1256px;
+    width: 1754;
+    height: 898px;
 }
 
 .newsSection p {
-    margin-left: 10px;
+    margin-left: 30px;
+}
+
+.newsSection button {
+    border-radius: 50px;
+    font-size: 13px;
+    padding: 10px;
+    background-color: rgb(60, 60, 60); 
+    border: 0px;
+    color: white;
+    margin-top: 10px;
+    margin-left: 30px;
 }
 
 .newsSection img {
     width: 1000px;
-    height: 1000px;
+    height: 800px;
+    display: flex;
+    margin-left: 100%;
+}
+.instaSection {
+    display: flex;
+    margin-left: 50%;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.instaImage {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+}
+
+.instaImage img {
+    width: 344px;
+    height: 344px;
+}
+
+.btn2 {
+    border-radius: 50px; 
+    size: 100px;
+    background-color: gray; 
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-left: 50%;
+}
+
+
+.subscribe p {
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+    font-size: 20px; 
+    font-weight: bold;
+}
+
+.subscribe span {
+    display: flex;
+    margin-left: 41%;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 80%;
+}
+
+.subscribe input {
+    border: 0;
+    border-radius: 50px;
+    background-color:blanchedalmond;
+    width: 500px;
+    justify-content: center;
+    margin-left: 41%;
+}
+
+.btn3 {
+    border: none;
+    background-color: gray;
+    color: white;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 41%;
+    margin-top: 20px;
+    border-radius: 50px;
+    width: 500px;
 }
