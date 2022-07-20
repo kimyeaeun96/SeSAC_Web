@@ -35,10 +35,14 @@ call('kim')
     .then(function(name){
         console.log(name+"반가워");
         var a = back();
+        // Promise { 'back' }
+        return a;
  })
     .then(function(txt){
         console.log(txt + " 을 실행했구나");
-        return hell();
+        var b = hell();
+        // Promise { 'callback hell' }
+        return  b;
 })
     .then(function(message){
         console.log("여기는 " + message);

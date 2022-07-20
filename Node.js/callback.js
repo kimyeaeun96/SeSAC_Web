@@ -13,5 +13,4 @@ const user = login('kim', '1234', user=>{
 
 console.log('finish');
 
-// 너무 많은 콜백이 이루어질 수 있다는 단점이 있다~~
-
+// 너무 많은 콜백이 이루어질 수 있다는 단점이 있다

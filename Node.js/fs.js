@@ -6,5 +6,3 @@ fs.readFile("./text.txt", (err, data) => {
     console.log(data);    // buffer : 파일의 원형
     console.log(data.toString()); //  buffer를 string
 });
- 
-
