@@ -1,6 +1,6 @@
 /*
 class Cat {     
-    constructor( name ){
+    constructor( name ){     // constructor: 클래스의 인스턴스 객체를 생성하고 초기화하는 특별한 메서드
         this.name = name;
     }
     mew(){
@@ -10,7 +10,7 @@ class Cat {
 
 var cat1 = new Cat("나비"); // cat1 객체를 만든다. 
 var cat2 = new Cat("냥이");
-console.log(cat1);
+console.log(cat1); // Cat { name: '나비' }
 cat1.mew();
 cat2.mew();
 
@@ -47,6 +47,9 @@ class Car {
 
 var car0 = new Car("red");
 var car1 = new Car("red");
+console.log(car1)
+car1.go()
+car1.back()
 var car2 = new Car("red");
 var car3 = new Car("red");
 var car4 = new Car("red");

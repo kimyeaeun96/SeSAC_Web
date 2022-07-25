@@ -10,6 +10,8 @@ async function func(){
 }
 
 func().then(function(result){console.log(result);}) // 1
+
+-----------------------------
 */
 
 function login(id, pw){
