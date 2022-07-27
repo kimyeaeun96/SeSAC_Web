@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>prc33</title>
+        <script>
+            function sendGet(){
+                axios({
+                    method: "get",
+                    url: "http://localhost:8080/first",
+                    params:{
+                        name: "codee"
+                    }
+                }).then((a) => {return a.data; })
+                  .then((d) => {
+                    alert( d.message );
+                  });
+                };
+            function sendForm(){
+                var form = document.getElementById("form_info");
+                console.log( form );
+                var input_id = document.getElementById("_id").value;
+                
+                var result = form.checkValidity();   // 검사하고, 값을 통과하지 못하면 false 그반대면 true 
+                if ( !result ){
+                    form.reportValidity();  // 폼양식을 지키지 않았을 때 뜨는 원래의 결과.
+                    return false;  // 함수를 빠져나온다. 밑의 콘솔로그 찍히지 않는다.
+                    alert( `다시 입력해주세요.`)
+                }
+                console.log( result );
+                alert( `${input_id}님 회원가입을 축하합니다.`)
+            }
+        </script>
+    </head>
+    <body>
+        <form id="form_info">
+            <fieldset>
+                <legend>이름/성별</legend>
+                <label>
+                    이름 : 
+                    <input id="_id" type="text" name="name" required><br>
+                </label>
+                <input type="radio" name="gender" id="gender_1" value="남">
+                <label for="gender_1">남</label>
+                <input type="radio" name="gender" value="여">여<br>
+            </fieldset>
+            <fieldset>
+                생년월일 <select name="year">
+                    <% for ( var i = 1950; i < 2023; i++ ) { %>
+                        <option><%=i%></option>
+                    <% } %>
+                </select>년
+                <select name="month">
+                    <% for (var i = 1; i < 13; i++){ %>
+                        <option><%=i%></option>
+                    <% } %>
+                </select>월
+                <select name="day">
+                    <% for (var i = 1; i < 32; i++){ %>
+                        <option><%=i%></option>
+                    <% } %>
+                </select>일
+                <br>
+            </fieldset>
+            <button onclick="sendForm();" type="button">Sign Up</button>
+        </form>
+    </body>
+</html>

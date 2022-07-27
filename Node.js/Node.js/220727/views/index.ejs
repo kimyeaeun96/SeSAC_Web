@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>Axios</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function sendGet(){
+                axios({
+                    method: "get",
+                    url: "http://localhost:8080/receive",
+                    params:{
+                        name: "codee",
+                    }
+                }).then((a) => {return a.data; })
+                  .then((d) => {
+                    alert( d.message );
+                  });
+            
+                };
+            
+            function sendPost(){
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/receive",
+                    data:{
+                        name: "codee"
+                    }
+                }).then((a) => {return a.data; }) // 다음 프라미스에서 리턴한다. 
+                  .then((d) => {
+                    alert( d.message );
+                  });
+            
+                };// 액시오스가 백에서 갔다온다. 받은 데이터를 프라미스 형태로 담는다.
+                
+                function sendForm(){
+                    var form = document.getElementById("form_info");
+                    console.log( form );
+                    
+                    var result = form.checkValidity();   // 검사하고, 값을 통과하지 못하면 false 그반대면 true 
+                    if ( !result ){
+                        form.reportValidity();  // 폼양식을 지키지 않았을 때 뜨는 원래의 결과.
+
+                        return false;  // 함수를 빠져나온다. 밑의 콘솔로그 찍히지 않는다.
+                    }
+                    console.log( result );
+                    /*
+                    console.log( form.name.value );
+                    console.log( form.age.value );
+
+                    axios({
+                    method: "post",
+                    url: "http://localhost:8080/receive",
+                    data:{
+                        name: form.name.value
+                    }
+                }).then((a) => {return a.data; }) 
+                  .then((d) => {
+                    alert( d.message );
+                  });*/
+                };
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="sendGet()">sendGet</button> 
+        <button type="button" onclick="sendPost()">sendPost</button> 
+        
+        <form id="form_info">
+            <input type="text" name="name" required>
+            <input type="text" name="age" required>
+            <button type="button" onclick="sendForm()">sendForm</button> 
+        </form>
+    </body>
+</html>
+
+
+<!--
+폼전송
+버튼 타입지정 x : 기본값=submit. 폼 지정해줘야함. 
+버튼 타입지정 o : 폼 전송된다.  onclick=함수실행.
+
+함수 실행/폼전송에 따라 버튼 타입을 지정한다.
+
+res.send 응답으로 문자를 보낸다. axios를 사용하면 
+
+get, post 메쏘드 달라진다. 쓰는 함수 달라진다. get- params / post - .then. 받는 데이터가 query냐 body냐 차이~
+
+폼 : name을 통해 가져온다! form - name 짱중요
+-->
