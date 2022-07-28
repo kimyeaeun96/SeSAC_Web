@@ -4,17 +4,25 @@
         <title>prc33</title>
         <script>
             function sendGet(){
+                var input_id = document.getElementById("_id").value;
+                var input_gender_m = getElementsById("man").value;
+                var input_gender_w = getElementsById("woman").value;
+                var input_year = document.getElementById("_year").value;
+                
                 axios({
                     method: "get",
-                    url: "http://localhost:8080/first",
+                    url: "http://localhost:8080/first/receive",
                     params:{
-                        name: "codee"
+                        name: input_id,
+                        gender: checked,
+                        year: input_year
                     }
-                }).then((a) => {return a.data; })
-                  .then((d) => {
-                    alert( d.message );
-                  });
-                };
+                // }).then((a) => {return a.data; })
+                //   .then((d) => {
+                //     alert( d.message );
+                //   });
+                })    
+            };
             function sendForm(){
                 var form = document.getElementById("form_info");
                 console.log( form );
@@ -39,12 +47,11 @@
                     이름 : 
                     <input id="_id" type="text" name="name" required><br>
                 </label>
-                <input type="radio" name="gender" id="gender_1" value="남">
-                <label for="gender_1">남</label>
-                <input type="radio" name="gender" value="여">여<br>
+                <input type="radio" name="gender" id="man" value="man">남
+                <input type="radio" name="gender" id="woman" value="woman">여<br>
             </fieldset>
             <fieldset>
-                생년월일 <select name="year">
+                생년월일 <select name="year" id="_year">
                     <% for ( var i = 1950; i < 2023; i++ ) { %>
                         <option><%=i%></option>
                     <% } %>
@@ -61,7 +68,7 @@
                 </select>일
                 <br>
             </fieldset>
-            <button onclick="sendForm();" type="button">Sign Up</button>
+            <button onclick="sendForm(), sendGet();" type="submit">Sign Up</button>
         </form>
     </body>
 </html>

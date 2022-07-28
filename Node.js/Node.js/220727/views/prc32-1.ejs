@@ -3,20 +3,19 @@
         <title>prc32-1. 로그인</title>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script>
-            /*
              function sendPost(){
                 axios({
                     method: "post",
-                    url: "http://localhost:8080/receive",
+                    url: "http://localhost:8080/",
                     data:{
                         ID: "yeye",
                         PW : "1234",
                         NAME : "yeaeun"
                     }
+                }).then((response) => {
+                    console.log(response)
                 })
              }
-             */
-
              function sendForm(){
                     var form = document.getElementById("form_info");
                     console.log( form );
@@ -24,12 +23,10 @@
                     var result = form.checkValidity();   
                     if ( !result ){
                         form.reportValidity();  
-                        alert(`다시 입력해주세요.`)
                         return false;  
                     }
                     console.log( result );
-                    alert(`회원가입에 성공하셨습니다.`)
-                }
+            }
         </script>
         <style>
             div {
@@ -75,7 +72,7 @@
     </head>
     <body>
         <div>
-            <form method="POST">
+            <form id="form_info" method="POST">
                 <div class="empty"></div>
                     <div style="font-size: 20px; font-weight: lighter">
                         회원가입
@@ -94,7 +91,7 @@
                         <input id="_name" type="text" name="name" required>
                     </div>
                     <div style="margin-top: 10px; margin-bottom: 20px;"></div>
-                    <button type="submit" class="btn">sign up!</button>    
+                    <button type="submit" onclick="sendForm(), sendPost();" class="btn">sign up!</button>    
             </form>
         </div>
     </body>
