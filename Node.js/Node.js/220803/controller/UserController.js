@@ -18,16 +18,33 @@ exports.login = (req, res) => {
 
 exports.post_login = async (req, res) => {
     var data = await User.get_user(); //  모델 - user - get_user함수 실행하겠다.
-    var info = data.split("\n"); // 슬래시 기준으로 데이터 받는다.
     // { "asdf", "asdf", "asdf", "asdf"}
 
-for (i=0; i >= 0; i++){
-    if ( info[i] == req.body.id && req.body.pw ){
-        res.send("로그인 성공");  
-    }else if ( info[i] != req.body.id || req.body.pw ){
-        res.send( "로그인 실패" )
+    var infos = data.split("\n");
+    // for ( let i = 0; i < infos.length; i++ ){
+    //     // i = 0, infos[i] = "11/11/11/11";
+    //     var info = infos[i].split("//");
+    //      if ( info[0] == req.body.id && info[1] == req.body.pw ){
+    //          res.send("성공")
+    //          return false;
+    //      }
+    // }
+    // res.send("실패");
+    var flag = false;
+    for ( let i = 0; i < infos.length; i++ ){
+        var info = infos[i].split("//");
+        if ( info[0] == req.body.id && info[1] == req.body.pw ) flag = true;
     }
-}}
+    if (flag) res.send("성공");
+    else res.send("실패");
 
+//     var info = data.split("//");
 
-
+// for (i=0; i >= 0; i++){
+//     if ( info[i] == req.body.id && req.body.pw ){
+//         res.send("로그인 성공");  
+//     }else if ( info[i] != req.body.id || req.body.pw ){
+//         res.send( "로그인 실패" )
+//     }
+// }}
+}
