@@ -34,7 +34,7 @@ exports.get_visitor = (id, cb) => {
 }
 
 exports.update = (data, cb) => {
-    let sql = `UPDATE visitor SET name='${data.name}', comment='${data.comment}' WHERE id='${data.id}`;
+    let sql = `UPDATE visitor SET name='${data.name}', comment='${data.comment}' WHERE id=${data.id}`;
     // data.id 로 넘어온 값의 name, comment 업데이트 
     cnn.query( sql, ( err, rows ) => {
         if ( err ) throw err;
