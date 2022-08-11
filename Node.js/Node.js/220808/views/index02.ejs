@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function profileEdit() {
+                var form = document.getElementById("form_profile");
+                if ( !form.checkValidity() ) {
+                    form.reportValidity();
+
+                    return false;
+                }
+                let user = {
+                    id: form.id.value,
+                    pw: form.pw.value
+                };
+                axios({
+                   method: 'post',
+                   url: 'http://localhost:8000/visitor/profile/edit',
+                   data: user
+                }).then((rep) => { return rep.data; } )
+                .then((data) => {
+                    alert("수정 성공~");
+                });
+            }
+
+            function profileDelete() {
+                var form = document.getElementById("form_profile");
+                if ( !form.checkValidity() ) {
+                    form.reportValidity();
+
+                    return false;
+                }
+                let user = {
+                    id: form.id.value
+                };
+                axios({
+                    method: "post",
+                    url: "http://localhost:8000/visitor/profile/delete",
+                    data: user
+                }).then((rep) => {return rep.data;})
+                .then((data) => {
+                    alert("회원 탈퇴 성공~")
+                });
+            }
+        </script>
+
+
+    </head>
+    <body>
+        <form id="form_profile" method="post" >
+            <fieldset>
+                아이디 <input id="id" type="text" name="id" required /><br>
+                비밀번호 <input id="pw" type="password" name="pw"required /><br>
+                <button type="button" onclick="profileEdit()">수정</button>
+                <button type="button" onclick="profileDelete()">삭제</button>
+            </fieldset>
+        </form>
+    </body>
+</html>
