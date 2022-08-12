@@ -1,0 +1,17 @@
+<!-- 클라이언트가 저장되어 있는 것을 가져온다.-->
+<!-- cookie는 도큐먼트 안에 있다. 최상위에 있다. 쿠키의 데이터파일은 텍스트파일-->
+<html>
+    <head>
+        <script>
+            console.log( document.cookie );  
+            document.cookie = 'user=sesac; expires=Sat, 13 Aug 2022 13:00:00 GMT; path=/'; //여러 경로는 세미콜론으로 지정
+            console.log( document.cookie );
+
+            var cookieArr = document.cookie.split(';');
+            // for ( var i = 0; i < cookieArr.length; i++ )
+            for ( var i in cookieArr ){
+                console.log( cookieArr[i] );                
+            }
+        </script>
+    </head>
+</html>
