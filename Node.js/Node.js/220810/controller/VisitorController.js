@@ -63,7 +63,7 @@ exports.patch_comment = (req,res) => {
         comment: req.body.comment
     };
     //models.Visitor.update( 수정할 객체, 조건)
-    //upddate visitor set name=req.body.name, comment: req.body.comment where id = req.body.id
+    //update visitor set name=req.body.name, comment: req.body.comment where id = req.body.id
     models.Visitor.update( newObj, { where: { id: req.body.id} } )
     .then((result) => {
         console.log( result );

@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            function register(){
+                var form = document.getElementById("form_user")
+                if ( !form.checkValidity() ) {
+                    form.reportValidity();
+                    console.log( "reportValidity" );
+
+                    return false;
+                }
+                let user = {
+                    id: form.id.value,
+                    pw: form.pw.value
+                };
+                axios({
+                    method: 'POST',
+                    url: 'http://localhost:8000/user/signup',
+                    data: user
+                }).then((rep) => {return rep.data;})
+                .then((data) => {
+                    alert("회원가입 되셨습니다.")
+                })
+            };
+
+            function login(){
+                var form = document.getElementById("form_user");
+                if (!form.checkValidity() ){
+                    form.reportValidity();
+                    console.log( "reportValidity" );
+
+                    return false;
+                }
+                let user = {
+                    id: form.id.value,
+                    pw: form.pw.value
+                };
+                axios({
+                    method: 'POST',
+                    url: 'http://localhost:8000/user/signin',
+                    data: user
+                }).then((rep) => { return rep.data; })
+                .then((data) => {
+                    if ( data == true ){
+                        alert("로그인 되셨습니다.");
+                        document.location.href="/user/profile";
+
+                    } else {
+                        alert("로그인 실패하셨습니다.");
+                        form.reset();
+                    }
+                })
+            }
+        </script>
+    </head>
+    <body>
+        <form id="form_info" action="/user/profile" method="POST">
+            <input type="hidden" name="id">
+        </form>
+        <form id="form_user" method="POST" action="/user">
+            <fieldset>
+                아이디 <input id='id' type="text" name="id" required><br>
+                비밀번호 <input id='pw' type="password" name="pw" required><br>
+                <button type="button" onclick="register()">회원가입</button>
+                <button type="button" onclick="login()">로그인</button>
+            </fieldset>
+        </form>
+    </body>
+</html>

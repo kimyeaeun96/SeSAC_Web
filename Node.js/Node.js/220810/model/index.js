@@ -6,13 +6,13 @@ const sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
-    config
+    config // 이건 뭘까
 );
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.Visitor = require("./Visitor")(sequelize, Sequelize);
+db.User = require("./User")(sequelize, Sequelize);  // 원래는 db.Visitor = require("./Visitor")(sequelize, Sequelize);
 //const a = require("./Visior")
 //const b = a(sequelize, Sequelize);
 

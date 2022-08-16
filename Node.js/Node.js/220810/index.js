@@ -7,8 +7,9 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: true}));
 app.use( bodyParser.json() );
 
-const router = require("./routes");
-app.use('/visitor', router);
+const router = require("./routes/user");
+//app.use('/visitor', router);
+app.use('/user', router);
 
 app.listen(port, ()=>{
     console.log( "Server Port : ", port );

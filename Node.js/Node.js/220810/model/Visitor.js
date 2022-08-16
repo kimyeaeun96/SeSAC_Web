@@ -1,8 +1,7 @@
-const { sequelize } = require(".")
-
 const Visitor = ( Sequelize, DataTypes ) => {
-    // Sequelize는 model/index.js 에ㅓ의 sequelize
+    // Sequelize는 model/index.js 에서의 sequelize
     // DataTypes는 model/index.js 에서의 Sequelize
+    // DataTypes -> Sequelize -> sequelize
 
     const model = Sequelize.define(
         "visitor", // 모델이름
