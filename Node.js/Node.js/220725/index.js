@@ -6,7 +6,7 @@ const fs = require("fs").promises;
 
 app.set( "view engine", "ejs" );
 app.use( express.static( "public" ));
-app.use( express.urlencoded({extended: true})); // 
+app.use( express.urlencoded({extended: true}));
 app.use( bodyParser.json() ); // body-parser로 받을 때, json 형태로 받겠다.
 
 app.get("/", function(req, res){
