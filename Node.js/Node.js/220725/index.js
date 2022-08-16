@@ -11,14 +11,14 @@ app.use( bodyParser.json() ); // body-parser로 받을 때, json 형태로 받�
 
 app.get("/", function(req, res){
     res.render("login");
-})
+});
 
 app.get("/receive", function(req, res){
     console.log( req )
     console.log( req.query )
     console.log("receive", req.query);
     res.render("receive", req.query);
-})
+});
 
 app.post("/receive", function(req, res){
     // console.log( req )
@@ -32,4 +32,4 @@ app.post("/receive", function(req, res){
 
 app.listen(port,()=>{
     console.log("Server port : ", port);
-})
+});
