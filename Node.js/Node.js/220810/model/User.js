@@ -23,4 +23,4 @@ const User = ( Sequelize, DataTypes ) => {
     return model;
 }
 
-module.exports = User;
+module.exports = User

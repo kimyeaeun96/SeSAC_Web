@@ -17,7 +17,6 @@ exports.post_signup = (req, res) => {
     }
     models.User.create(object)
     .then((result) => {
-        console.log(result)
         res.send({id: result.id});
     })
 }
@@ -33,8 +32,12 @@ exports.post_signin = (req, res) => {
         where: {id: req.body.id}
     }).then((result) => {
         console.log( result );
-        res.send( true );
-    })
+
+        if (req.body.pw == result.pw) {
+            res.send(true);
+            return
+        }else{ res.send(false)}
+    });
 }
 
 // exports.get_profile = (req, res) => {
@@ -46,14 +49,6 @@ exports.get_profile = (req, res) => {
         res.render("second", { data: result })
     })
 }
-
-// exports.profile = (req,res) => {
-//     user.get_user(req.body.id, function(result){
-//         if ( result.length > 0 ) res.render("index02", {data: result[0]});   
-//         else res.send(false);
-//     })
-// }
-
 
 // exports.profile_edit = (req,res) => {
 //     user.update_profile(req.body, function(result){

@@ -54,18 +54,34 @@
                 })
             }
         </script>
+        <style>
+            div{
+                display: flex;
+                justify-content: center;
+                font-style: italic;
+            }
+            div:hover {
+                color: orange;
+            }
+            button {
+                background-color: white;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
+        <div>
         <form id="form_info" action="/user/profile" method="POST">
             <input type="hidden" name="id">
         </form>
         <form id="form_user" method="POST" action="/user">
             <fieldset>
-                아이디 <input id='id' type="text" name="id" required><br>
-                비밀번호 <input id='pw' type="password" name="pw" required><br>
-                <button type="button" onclick="register()">회원가입</button>
+                아이디 <input id='id' type="text" name="id" required><br><br>
+                비밀번호 <input id='pw' type="password" name="pw" required><br><br>
+                <button type="button" onclick="register()">회원가입</button><span></span><span></span><span></span>
                 <button type="button" onclick="login()">로그인</button>
             </fieldset>
         </form>
+        </div>
     </body>
 </html>

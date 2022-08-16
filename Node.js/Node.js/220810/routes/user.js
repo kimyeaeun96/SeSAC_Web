@@ -10,7 +10,6 @@ router.post("/signup", user.post_signup);
 router.post("/signin", user.post_signin);
 
 router.get("/profile", user.get_profile);
-// router.post("/profile", user.profile);
 router.post("/profile/edit", user.profile_edit);
 router.post("/profile/delete", user.profile_delete);
 
