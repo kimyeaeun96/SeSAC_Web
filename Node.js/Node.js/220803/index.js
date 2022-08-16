@@ -17,8 +17,8 @@ app.use("/user", router);
 
 app.get("/", function(req,res){
     res.send("Index");
-})
+});
 
 app.listen(port, ()=>{
     console.log( "Server Port : ", port );
-})
+});
