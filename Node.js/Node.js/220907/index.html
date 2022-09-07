@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+</head>
+<body>
+    <button type="button" onclick="btnClick();">click</button>
+    <script> 
+        // 클라이언트에서 소켓에 연결
+        var socket = io.connect();
+
+        socket.on("connect", function(){   // read. on(이벤트명, 콜백함수)
+            console.log("server connected");
+        });
+
+        socket.on('hello', function(data){
+            console.log('data: ', data);
+        })
+
+        function btnClick() {
+            console.log('click');
+            socket.emit('click', 'Click!!!');
+        }
+        socket.on('clickResponse', function(data){
+            console.log('response: ', data);
+        })
+    </script>
+</body>
+</html>
