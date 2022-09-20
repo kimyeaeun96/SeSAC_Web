@@ -4,72 +4,91 @@ bottom: 0;
 left: 0;
 right: 0;
 z-index: 10; 
-
 }
 
-.wrap {
-display: flex;
-flex-direction: row;
+.empty {
 width: 100%;
-height: 50%;
-top: 50%;
-left: 30%;
-}
-
-.room, .chat {
-    display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-    padding:3px; 
-    /* position: absolute; */
-}
-
-.room {
-width: 15%;
-height: 60%;
-background-color: white;
-border-radius: 50px;
-left: 15%;
-border: 0;
+height: 10%;
 }
 
 .chat {
 width: 50%;
 height: 60%;
 
-align-items: space-between;
-justify-content: center;
-
 background-color: white;
 border-radius: 50px;
 border: 0;
-left: 31%;
+
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content:center;
+align-items: center;
+padding: 3px;
+margin: auto;
 }
 
 .chat-top {
-width: 100%;
-height: 30%;
-display: block;
-flex-grow: 1;
-flex-shrink: 1;
-flex-basis: auto;
-background-color: yellow;
+width: 90%;
+height: 500px;
+/* position: relative; */
+display: flex;
+justify-content: center;
+flex-direction: column;
+background-color: rgb(255, 255, 233);
+word-break: break-all;
+word-wrap: break-word;
 }
 
+.notice_1 {
+width: 30%;
+height: auto;
+text-align: center;
+border-radius: 30px;
+background-color: rgb(244, 220, 238);
+margin: auto;
+}
+
+/* .chat-top span {
+
+} */
+
+.my-chat {
+text-align: right;
+}
+
+.my-chat div {
+background-color: rgba(255, 234, 0, 0.829);
+border-radius: 3px;
+display: inline-block;
+justify-content: right;
+max-width: 30%;
+height: auto;
+margin-top: 10px;
+}
+
+
+.other-chat div {
+background-color: gainsboro;
+border-radius: 3px;
+display: inline-block;
+justify-content: right;
+max-width: 30%;
+height: auto;
+
+}
 .chat-bottom {
-width: 100%;
+width: 90%;
 height: 20%;
 display: flex;
-align-items: center;
-background-color: red;
+align-items:center;
+/* flex-wrap:wrap; */
+justify-content: space-between;
+/* background-color: red; */
 /* flex-grow: 1;
 flex-shrink: 1;
 flex-basis: auto; */
 }
-/* #notice_1 {
-    position: absolute;
-} */
-
 
 input {
 width: 80%;
@@ -85,7 +104,7 @@ left: 35px;
 .btn_1, .btn_2 {
 width: 50px;
 height: 50px;
-display: inline-block;
+display: inline;
 border: 0;
 background-color: rgb(226, 241, 247);
 border-radius: 100px;
@@ -108,14 +127,12 @@ color: rgb(104, 118, 133);
 } */
 
 
-
-.my-chat { text-align: right; }
-
-.my-chat div { background-color: yellow; }
-
-.other-chat div { background-color: white;}
-
 /* BLUE WHALE */
+
+.col-md-7 {
+position: relative;
+top: 10%;
+}
 
 .card{
 /*     border: 1px solid #ECECEC; */
@@ -123,39 +140,39 @@ color: rgb(104, 118, 133);
 position: relative;
 height: 15vh;
 width: 100%;
-top: 80%;
+top: 60%;
 }
 
 .card-after {
-    position: absolute;
-    bottom: 0;
-    height: 8vmin;
-    border-top: 1px solid #ECECEC;
-    z-index: 1000;
-    width: 100%;
-    background-color: #F3F3F3;
+position: absolute;
+bottom: 0;
+height: 8vmin;
+border-top: 1px solid #ECECEC;
+z-index: 1000;
+width: 100%;
+background-color: #F3F3F3;
 }
 
 
 
 .blue-ocean {
-    position: relative;
-    background-color: none;
-    width: 100%;
-    height: 15vh;
-    overflow: hidden;
+position: relative;
+background-color: none;
+width: 100%;
+height: 15vh;
+/* overflow: hidden; */
 }
 
 
 .blue-whale {
-    height: 7vmin;
-    width: 13vmin;
-    background-color: transparent;
-    /* position: absolute; */
-    left: 50%;
-    transform: translateX(-50%) rotate(0deg);
-    border-radius: 0% 30% 5% 0%;
-    top: 10%;
+height: 7vmin;
+width: 13vmin;
+background-color: transparent;
+/* position: absolute; */
+left: 50%;
+transform: translateX(-50%) rotate(0deg);
+border-radius: 0% 30% 5% 0%;
+top: 10%;
 }
 
 .blue-whale:after {
@@ -205,12 +222,14 @@ top: 80%;
 
 @keyframes whale-move {
 0% {transform: translateX(-50%);}
-100% {transform: translateX(500%);}
+50% {transform: translateX(775%);}
+100% {transform: translateX(1500%);}
 }
 
 @-webkit-keyframes whale-move {
 0% {transform: translateX(-50%);}
-100% {transform: translateX(500%);}
+50% {transform: translateX(775%);}
+100% {transform: translateX(1500%);}
 }
 
 
@@ -231,7 +250,7 @@ top: 80%;
     transform: translateX(-50%) rotate(0deg);
     border-radius: 0% 30% 2% 0%;
     transform-origin: 0% 50%;
-    overflow:hidden;
+    /* overflow:hidden; */
     z-index:1;
 }
 
@@ -278,7 +297,6 @@ top: 80%;
     right: 30%;
     top: 70%;
     border-radius: 50%;
-
 }
 
 .gill-container {
@@ -292,8 +310,7 @@ top: 80%;
     top: 70%;
     transform-origin: 100% 100%;
     overflow:hidden;
-    
-    }
+}
     
 .blue-whale-gill {
     background-color: #9DA6B5;
@@ -305,8 +322,7 @@ top: 80%;
     animation: whale-gill 3s ease-in-out infinite;
     transform-origin: 100% 100%;
     transform: rotate(15deg);
-    
-    }
+}
     
 @keyframes whale-gill {
 0% {height: 2vmin; box-shadow: 2px 2px 2px #62728A;}
@@ -326,7 +342,7 @@ top: 80%;
 
 .blue-ocean .blue-whale-gill{
     animation: whale-gill1 3s ease-in-out infinite;
-    }
+}
     
 @keyframes whale-gill1 {
 0% {height: 2vmin; box-shadow: 2px 2px 2px #62728A;}
@@ -446,7 +462,7 @@ top: 80%;
     animation:flipper-move 2s linear infinite;
 }
 
-.blue-whale-line1 {
+/* .blue-whale-line1 {
     width: 40vmin;
     height: 5vmin;
     background-color: transparent;
@@ -454,7 +470,7 @@ top: 80%;
     left: 40%;
     top: -10%;
     box-shadow: 1vmin 2vmin 25vmin #F5DAF4;
-}
+} */
 
 /* background */
 @keyframes move_wave {

@@ -3,25 +3,20 @@
     <title>chatroom</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
     <link href="./public/chat2.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- chat-->
     <div id="chat-list" class="chat-list">
-    
-        <div id="wrap" class="wrap">
-            <div id="room" class="room"></div>
-                <!-- <div id="rooms"></div>
-                <div id="rooms"></div>
-                <div id="rooms"></div> -->
+            <div id="empty" class="empty"></div>
             <div id="chat" class="chat">
-
                 <div id="chat-top" class="chat-top"></div>
                 <div id="chat-bottom" class="chat-bottom"> 
                     <select id="nick-list">
-                        <option value="전체"></option>
+                        <option value="전체">전체</option>
                     </select>
-
-                    <input type="text" id="message" placeholder="   write your message here">
+                    <input type="text" id="message" placeholder="  write your message here">
                     <button type="button" id="btn_1" class="btn_1" onclick="send();">send</button>
                     <button type="button" id="btn_2" class="btn_2" onclick="send();">+</button>
                 </div>
@@ -76,9 +71,10 @@
         // 메세지 send
         function send(){
             let msg = document.getElementById('message').value;   // 메세지 불러오기
-            let nick = document.getElementById('nick-list'); // 닉네임 리스트 불러오기
+            let nick = document.getElementById('nick-list').value;
+            console.log(nick); 
             socket.emit("send", { msg: msg, to: nick });    // socket.on("send", function(data){ console.log(data)}) -> data.msg, data.nick
-            document.getElementById("message").value = ""; // ?? 
+            document.getElementById("message").value = "";  
         }
         socket.on("newMessage", function(data){ // 메세지 data 읽기 : chat-list, 
             console.log(data);
@@ -88,18 +84,19 @@
             var span = document.createElement("span");
 
             div_chat.textContent = data.msg;
-            // <.chat_top><div><div_chat>{data.msg}</div_chat></div></.chat_top>
+            div.appendChild(div_chat);
+            chat_top.appendChild(div);
 
-            if ( data.is_dm ) div_chat.textContent = "(DM)" + div_chat.textContent; // is_dm: true의 경우: <.div_chat>(DM) + {div_chat} </.div_chat>
-            if ( data.nickname == nickname ){div.classList.add("my-chat");} // nickname: true -> <div><div class="my-chat"></div></div>
-            else{   // is_dm: false, nickname: false -> <div><span class="other-chat">{nickname}</span></div>
+            if ( data.is_dm ) div_chat.textContent = "(DM)" + div_chat.textContent; 
+            if ( data.nickname == nickname ){div.classList.add("my-chat");} 
+            else{   
                 span.textContent = data.nickname;
                 div.appendChild(span);
                 div.classList.add("other-chat");
                 div.appendChild(div_chat);
                 chat_top.appendChild(div);
             }
-            //<div class="other-chat"><span>닉네임</span><div class="div_chat"></div></div>
+            
         })
         // chat-list에 유저입장 알림 div 생성
         //io.emit("notice", )
@@ -113,14 +110,15 @@
         });
         //닉네임 리스트
         socket.on("list", function(list){
+            let room = document.getElementById("room")
             let nick_list = document.getElementById("nick-list"); // 닉네임리스트를 부른다
             while (nick_list.firstChild){
                 nick_list.removeChild(nick_list.lastChild); // 라스트차일드부터 지운다. 전부 지워지면 while문 종료
             }
-            let option = document.createElement("option") // 닉네임리스트에 넣을 옵션을 create 함. 계속 추가하도록 appendChild
+            let option = document.createElement("option");
             option.text = "전체";
             option.value = "전체";
-            nick_list.appendChild( option );
+            nick_list.appendChild(option);
 
             for ( let [key, value] of Object.entries(list) ){   // option의 정보
                 let option = document.createElement('option');
