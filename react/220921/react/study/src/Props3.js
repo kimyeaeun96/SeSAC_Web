@@ -7,17 +7,17 @@ class text extends Component {
     return(
         <>
             <div style={{fontSize:'30px', fontWeight: 'bold'}}>{text}</div><br/>
-            <button onClick={valid}>콘솔메세지</button>
+            <button onClick={()=>{console.log(valid)}}>콘솔메세지</button>
         </>
     );
 }};
 
 text.defaultProps = {
     text: "이건 기본 text props 입니다",
-    valid: console.log("콘솔 로그 성공")
+    valid: "콘솔 메세지 띄우기 성공!"
 }
 text.propTypes = {
-    text: propTypes.string,
+    text: propTypes.string.isRequired,
     valid: propTypes.string
 };
 
