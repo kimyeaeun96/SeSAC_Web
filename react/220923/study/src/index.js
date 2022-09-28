@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+<<<<<<< HEAD
 import EventClass1 from './EventClass1';
 import EventClass2 from './EventClass2';
+=======
+>>>>>>> 2f8a504fa82a4b8a83b4ac6071a4b72bb76f34de
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
