@@ -1,18 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-// import StateClass from './StateClass';
-// import StateFunction from './StateFunction';
-import Event from './Event'
-import EventClass from './EventClass'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Handler_ex from "./ex/Handler_ex";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Event />
-    <EventClass />
+    <Handler_ex />
   </React.StrictMode>
 );
 
