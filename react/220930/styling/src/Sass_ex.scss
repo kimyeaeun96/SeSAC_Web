@@ -1,0 +1,55 @@
+@import "./stlyes/utils.scss";
+
+.Sass_ex {
+  display: flex;
+  background: $oc-gray-2; // oc 오픈컬러즈 라이브러리에서 불러옴
+  @include media("<768px") {
+    // 화면 가로크기가 768px 미만이 되면 배경색을 어둡게 한다.
+    background: $oc-gray-9;
+  }
+  .box {
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+
+    &.red {
+      // .red 클래스가 .box와 함께 사용되었을 때
+      background: $red;
+      @include square(1);
+    }
+
+    &.orange {
+      background: $orange;
+      @include square(2);
+    }
+
+    &.yellow {
+      background: $yellow;
+      @include square(3);
+    }
+
+    &.peach {
+      background: $peach;
+      @include square(4);
+    }
+
+    &.skyblue {
+      background: $skyblue;
+      @include square(5);
+    }
+
+    &.green {
+      background: $green;
+      @include square(6);
+    }
+
+    &.blue {
+      background: $blue;
+      @include square(7);
+    }
+
+    &:hover {
+      // .box에 마우스를 올렸을 때
+      background: black;
+    }
+  }
+}

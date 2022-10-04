@@ -1,0 +1,18 @@
+@import "~include-media/dist/_include-media";
+@import "~open-color/open-color";
+
+// 변수
+$red: #fa5252;
+$orange: #ff8200;
+$yellow: #ffd732;
+$peach: #ff9e9b;
+$skyblue: #73e1e1;
+$green: #54bd54;
+$blue: #2828cd;
+
+//믹스인 만들기(재사용되는 스타일 블록을 함수처럼 사용 가능)
+@mixin square($size) {
+  $calculated: 32px * $size;
+  width: $calculated;
+  height: $calculated;
+}
