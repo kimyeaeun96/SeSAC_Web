@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import sesac.second.example.sesacsecond.VO.PersonVO;
 import sesac.second.example.sesacsecond.dto.PersonDTO;
 
+import java.sql.Array;
+import java.util.*;
+
 @Controller
 public class controller {
     @GetMapping("hello")
@@ -28,7 +31,8 @@ public class controller {
         model.addAttribute("name", nn);
         return "api";
     }
-
+// ---------------------------------------------------------------
+    // 11월 16일 DAO DTO VO 수업
     @GetMapping("form")
     public String getForm(){
         return "form";
@@ -92,5 +96,47 @@ public class controller {
         model.addAttribute("name", person.getName());
         model.addAttribute("gender", person.getGender());
         return "result";
+    }
+    //------------------------------------------------------------------
+    //실습1. Thymeleaf(1)
+    @GetMapping("thyme")
+    public String getThyme(Model model){
+        model.addAttribute("age",16);
+        return "prcThymeleaf";
+    }
+//    실습2. Thymeleaf(2)
+    @GetMapping("people")
+    public String people(Model model){
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("kim",10));
+        people.add(new Person("lee",20));
+        people.add(new Person("hong",30));
+        people.add(new Person("park",40));
+        people.add(new Person("shin",50));
+        // add data to view
+        model.addAttribute("people", people);
+        return "prcThymeleaf";
+    }
+    //실습3. API-GET
+    @GetMapping("introduce/{name}")
+    public String getPrc(@PathVariable("name") String name, Model model){
+        return "prc37";
+    }
+
+    @GetMapping("introduce2")
+    public String getPrc2(@RequestParam(value="name", required = false) String name,
+                          @RequestParam(value="age", required = false) int age,
+                          Model model){
+        model.addAttribute("name", name);
+        model.addAttribute("age", age);
+        return "prc37";
+    }
+    class Person {
+        public String name;
+        public int age;
+        public Person(String name, int age){
+            this.name = name;
+            this.age = age;
+        }
     }
 }
