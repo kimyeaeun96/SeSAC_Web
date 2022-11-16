@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:if="${age}>=20" th:text="${age}+'세는 성인입니다.'"></p>
+<p th:unless="${age}>=20" th:text="${age}+'세는 미성년자입니다.'"></p>
+
+<!--<table class="tb_col" border="1">-->
+<!--    <thead>-->
+<!--        <tr>-->
+<!--            <th>이름</th>-->
+<!--            <th>나이</th>-->
+<!--        </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--        <tr th:each="people:${people}">-->
+<!--            <td th:text="${people.name}"></td>-->
+<!--            <td th:text="${people.age}"></td>-->
+<!--        </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+</body>
+</html>
