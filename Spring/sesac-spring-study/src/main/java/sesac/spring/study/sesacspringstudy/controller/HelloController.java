@@ -10,10 +10,18 @@ public class HelloController {
     @GetMapping("hi") // get URL hi
     public String getHi(Model model){ // 톰캣서버가 모델에서 정보를 받고 view로 보낸다.
         model.addAttribute("text", "hihihi"); // th:text="${text}"
+        model.addAttribute("ㅕtext", "<strong>utext</strong>>");
+        String[] names = {"kim", "lee", "park"};
+        model.addAttribute("names", names);
         return "hi"; // [template] - hi.html
     }
     @GetMapping("hello")
     public String getHi2(){
-        return "hi2";
+        Person person = new Person();
+        return "hi";
+    }
+
+    class Person {
+
     }
 }
