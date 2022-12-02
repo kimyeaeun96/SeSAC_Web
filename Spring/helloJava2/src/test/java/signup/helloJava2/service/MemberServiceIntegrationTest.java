@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
-@Transactional
+//@Transactional
 class MemberServiceIntegrationTest {
 
     @Autowired MemberService memberService;
