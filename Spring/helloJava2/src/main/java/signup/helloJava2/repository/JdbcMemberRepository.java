@@ -1,12 +1,9 @@
 package signup.helloJava2.repository;
 
-import org.springframework.beans.factory.parsing.ProblemReporter;
 import org.springframework.jdbc.datasource.DataSourceUtils;
-import org.springframework.util.ResourceUtils;
 import signup.helloJava2.domain.Member;
 
 import javax.sql.DataSource;
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.Optional;
 
 public class JdbcMemberRepository implements MemberRepository{
 
+    // !! DB 연결: Datasource !!
     private final DataSource dataSource;
     public JdbcMemberRepository(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -38,8 +36,8 @@ public class JdbcMemberRepository implements MemberRepository{
             }else  {
                 throw new SQLException("ID 조회 실패");
             }return member;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
         } finally {
             close(conn, pstmt, rs);
         }

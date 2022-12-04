@@ -5,6 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 import signup.helloJava2.domain.Member;
 import signup.helloJava2.repository.MemberRepository;
 import signup.helloJava2.repository.MemoryMemberRepository;
@@ -12,32 +15,20 @@ import signup.helloJava2.repository.MemoryMemberRepository;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@WebAppConfiguration
 @SpringBootTest
-//@Transactional
+@Transactional
 class MemberServiceIntegrationTest {
-
+    // SpringConfig에서 구현체 받아온다.
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
 
-//    // DI
-//    @BeforeEach
-//    public void beforeEach() {
-//        // memberRepository 선언하고 클래스 속성 부분의 memberRepository에 저장됨
-//        memberRepository = new MemoryMemberRepository();
-//        // MemberService는 실제 레파지토리의 MemberService로 간다.
-//        memberService = new MemberService(memberRepository);
-//    }
-
-//    @AfterEach
-//    public void afterEach() {
-//        memberRepository.clearStore();
-//    }
-
+    // @Commit 왜 롤백 안되냐고
     @Test
     void 회원가입() {
         //given : 뭔가 주어지면
         Member member = new Member();
-        member.setName("spring");
+        member.setName("spring2");
 
         //when : 이걸 할 때
         Long saveId = memberService.join(member);
@@ -70,13 +61,5 @@ class MemberServiceIntegrationTest {
 //        }
 
         //then
-    }
-
-    @Test
-    void findByMembers() {
-    }
-
-    @Test
-    void findOne() {
     }
 }

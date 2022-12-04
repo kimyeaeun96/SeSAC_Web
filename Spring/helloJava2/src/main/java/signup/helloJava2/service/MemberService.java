@@ -1,5 +1,6 @@
 package signup.helloJava2.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import signup.helloJava2.domain.Member;
@@ -9,6 +10,8 @@ import signup.helloJava2.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
 
+ // jpa는 transactional 안에ㅅ ㅓ동작
+ @Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -17,7 +20,6 @@ public class MemberService {
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
-
 
 
     /**
@@ -31,9 +33,9 @@ public class MemberService {
 //            throw new IllegalStateException("이미 존재하는 회원 입니다.")
 //        });
 
-        validateDuplicateMember(member); // 중복 회원 검증 하고
-        memberRepository.save(member); // 레파지토리에 저장한다
-        return member.getId();
+            validateDuplicateMember(member); // 중복 회원 검증 하고
+            memberRepository.save(member); // 레파지토리에 저장한다
+            return member.getId();
     }
     // extract method 한다.
     private void validateDuplicateMember(Member member) {
@@ -46,11 +48,11 @@ public class MemberService {
     /**
      * 전체 회원 조회
      */
-    public List<Member> findByMembers(){
-        return memberRepository.findAll();
+    public List<Member> findByMembers() {
+            return memberRepository.findAll();
     }
 
-    public Optional<Member> findOne(Long memberId) {
-        return memberRepository.findById(memberId);
-    }
-}
+     public Optional<Member> findOne(Long memberId) {
+         return memberRepository.findById(memberId);
+     }
+ }

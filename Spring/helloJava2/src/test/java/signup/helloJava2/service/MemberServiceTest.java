@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.context.web.WebAppConfiguration;
 import signup.helloJava2.domain.Member;
 import signup.helloJava2.repository.MemoryMemberRepository;
 
@@ -66,13 +67,5 @@ class MemberServiceTest {
 //        }
 
         //then
-    }
-
-    @Test
-    void findByMembers() {
-    }
-
-    @Test
-    void findOne() {
     }
 }
