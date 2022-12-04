@@ -1,6 +1,5 @@
 package signup.helloJava2.repository;
 
-import org.springframework.stereotype.Repository;
 import signup.helloJava2.domain.Member;
 
 import java.util.List;
