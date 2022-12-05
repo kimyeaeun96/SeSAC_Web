@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+
+  react:
+    volumes: 
+      - /frontend/node_modules
+      - ./:/frontend/src/app
+    build: 
+      context: /frontend
+    ports:
+      - "3000:3000"
+
+  node:
+    volumes:
+      - ./:/backend
+    build: 
+      context: /backend
+    ports:
+      - "8001:8000"
