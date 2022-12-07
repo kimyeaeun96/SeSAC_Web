@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "module": "CommonJS", // require()
-    "target": "ES6" // 환경
-  },
-  "include": ["*.ts"],
-  "exclude": ["node_nodules"]
-}
