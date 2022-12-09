@@ -15,43 +15,58 @@ public class JpaMemoRepository implements MemoRepository {
     }
 
     @Override
-    public Memo memo(Memo memo) {
-        return null;
-
+    public Memo save(Memo memo) {
+        em.persist(memo);
+        return memo;
     }
 
     @Override
     public Optional<Memo> findById(String id) {
-        return Optional.empty();
+        Memo memo = em.find(Memo.class, id);
+        return Optional.ofNullable(memo);
     }
 
     @Override
-    public Optional<Memo> findByUser_id(String user_id) {
-        return Optional.empty();
+    public Optional<Memo> findByUserID(String userID) {
+        Memo memo = em.find(Memo.class, userID);
+        return Optional.ofNullable(memo);
     }
 
     @Override
     public Optional<Memo> findByTitle(String title) {
-        return Optional.empty();
+        List<Memo> result = em.createQuery("select m from Memo m where m.title = :title", Memo.class)
+                .setParameter("title", title)
+                .getResultList();
+        return result.stream().findAny();
     }
 
     @Override
     public Optional<Memo> findByDate(String date) {
-        return Optional.empty();
+    List<Memo> result = em.createQuery("select m from Memo m where m.date = :date", Memo.class)
+            .setParameter("date", date)
+            .getResultList();
+        return result.stream().findAny();
     }
 
     @Override
     public Optional<Memo> findByContent(String content) {
-        return Optional.empty();
+        List<Memo> result = em.createQuery("select m from Memo m where m.content = :content", Memo.class)
+                .setParameter("content", content)
+                .getResultList();
+        return result.stream().findAny();
     }
 
     @Override
-    public Optional<Memo> findByWriteDate(String writedate) {
-        return Optional.empty();
+    public Optional<Memo> findByWriteDate(String writeDate) {
+        List<Memo> result = em.createQuery("select m from Memo m where m.writeDate = :writeDate", Memo.class)
+                .setParameter("writeDate", writeDate)
+                .getResultList();
+        return result.stream().findAny();
     }
 
     @Override
     public List<Memo> findAll() {
-        return null;
+        return em.createQuery("select m from Memo m", Memo.class)
+                .getResultList();
     }
 }

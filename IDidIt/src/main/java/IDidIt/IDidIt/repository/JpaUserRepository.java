@@ -28,7 +28,10 @@ public class JpaUserRepository implements UserRepository{
 
     @Override
     public Optional<User> findByPassword(String password) {
-        return Optional.empty();
+        List<User> result = em.createQuery("select u from User u where u.password = :password", User.class)
+                .setParameter("password", password)
+                .getResultList();
+        return result.stream().findAny();
     }
 
     @Override

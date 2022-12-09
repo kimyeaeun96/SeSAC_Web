@@ -8,5 +8,5 @@ import java.util.Optional;
 // <T, id> T = 도메인, id = 식별자 pk의 type
 public interface SpringDataJpaMemoRepository extends JpaRepository<Memo, Long>, MemoRepository {
     @Override
-    Optional<Memo> findByUser_id(String user_id);
+    Optional<Memo> findById(String id);
 }

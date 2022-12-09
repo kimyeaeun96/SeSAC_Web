@@ -4,15 +4,15 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-@Table(name = "CHILD")
+@Table(name = "Memo")
 public class Memo {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // PK 데이터 정렬 순서
-    @OneToOne(mappedBy = "user_id")
-    private String user_id;
+    @OneToOne(mappedBy = "memo")
+    private User userID;
 
     @Column(name="title")
     private String title;
@@ -20,6 +20,6 @@ public class Memo {
     private String date;
     @Column(name="content")
     private String content;
-    @Column(name="writedate")
-    private String writedate;
+    @Column(name="writeDate")
+    private String writeDate;
 }

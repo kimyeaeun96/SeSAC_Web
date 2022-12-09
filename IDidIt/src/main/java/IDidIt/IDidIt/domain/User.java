@@ -7,13 +7,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "PARENT")
+@Table(name = "User")
 public class User {
     @Id
-    @GeneratedValue
     private String id; // PK 유저 아이디
     @OneToOne
-    @JoinColumn(name = "MEMO_USER_ID")
+    @JoinColumn(name = "User")
     private Memo memo;
 
     @Column(name="password")
@@ -26,6 +25,6 @@ public class User {
     private String gender;
     @Column(name="nickname")
     private String nickname; // 유저 닉네임
-    @Column(name="phone_number")
-    private String phone_number;
+    @Column(name="phoneNumber")
+    private String phoneNumber;
 }

@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MemoRepository {
-    Memo memo(Memo memo);
+    Memo save(Memo memo);
     Optional<Memo> findById(String id);
-    Optional<Memo> findByUser_id(String user_id);
+    Optional<Memo> findByUserID(String userID);
     Optional<Memo> findByTitle(String title);
     Optional<Memo> findByDate(String date);
     Optional<Memo> findByContent(String content);
-    Optional<Memo> findByWriteDate(String writedate);
+    Optional<Memo> findByWriteDate(String writeDate);
     List<Memo> findAll();
 }
